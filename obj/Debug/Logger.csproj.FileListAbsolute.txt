@@ -1,0 +1,7 @@
+D:\Дима проекты\iJunior\Напильник\Logger\obj\Debug\Logger.csproj.CoreCompileInputs.cache
+D:\Дима проекты\iJunior\Напильник\Logger\bin\Debug\Logger.exe.config
+D:\Дима проекты\iJunior\Напильник\Logger\bin\Debug\Logger.exe
+D:\Дима проекты\iJunior\Напильник\Logger\bin\Debug\Logger.pdb
+D:\Дима проекты\iJunior\Напильник\Logger\obj\Debug\Logger.exe
+D:\Дима проекты\iJunior\Напильник\Logger\obj\Debug\Logger.pdb
+D:\Дима проекты\iJunior\Напильник\Logger\obj\Debug\Logger.csproj.AssemblyReference.cache
