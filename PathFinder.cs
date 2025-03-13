@@ -1,26 +1,35 @@
 ﻿using System;
-using System.IO;
 
 namespace Logger
 {
-    class PathFinder : ILogger
+    class PathFinder
     {
         private string _filePath;
-        private LogTypes _logType;
 
-        public PathFinder(LogTypes logType, string filePath = null)
+        public PathFinder(string filePath)
         {
             _filePath = filePath;
-            _logType = logType;
         }
 
-        public void WriteLog(string message)
+        public void Find()
         {
-            if (_filePath != null)
-                File.WriteAllText(_filePath, message);
+            ConsoleLogWriter consoleWriter = new ConsoleLogWriter();
+            FileLogWriter fileWriter = new FileLogWriter(_filePath);
+            ConsoleLogWriter consoleWednesdayWriter = new ConsoleLogWriter();
+            FileLogWriter fileWednesdayWriter = new FileLogWriter(_filePath);
+            ComplexLogWriter complexWednesdayWriter = new ComplexLogWriter(new ConsoleLogWriter(), new FileLogWriter(_filePath));
 
-            if (_filePath == null || _logType == LogTypes.Complex)
-                Console.WriteLine(message);
+            consoleWriter.WriteLog("Запись в консоль.");
+            fileWriter.WriteLog("Запись в файл.");
+
+            if (IsThursday())
+            {
+                consoleWednesdayWriter.WriteLog("Запись в консоль в пятницу.");
+                fileWednesdayWriter.WriteLog("Запись в файл в пятницу.");
+                complexWednesdayWriter.WriteLog("Комплексная запись в пятницу.");
+            }
         }
+
+        private bool IsThursday() => DateTime.Now.DayOfWeek == DayOfWeek.Thursday;
     }
 }

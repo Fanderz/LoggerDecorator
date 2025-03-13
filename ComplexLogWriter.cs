@@ -2,17 +2,21 @@
 
 namespace Logger
 {
-    class ComplexLogWriter : BaseLogWriter, ILogger
+    class ComplexLogWriter : ILogger
     {
-        public ComplexLogWriter(PathFinder pathFinder)
+        private ILogger _consoleLogger;
+        private ILogger _fileLogger;
+
+        public ComplexLogWriter(ILogger consoleLogger, ILogger fileLogger)
         {
-            PathFinder = pathFinder;
-            LogType = LogTypes.Complex;
+            _consoleLogger = consoleLogger;
+            _fileLogger = fileLogger;
         }
 
         public void WriteLog(string message)
         {
-            PathFinder.WriteLog(message);
+            _consoleLogger.WriteLog(message);
+            _fileLogger.WriteLog(message);
         }
     }
 }

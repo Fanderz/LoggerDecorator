@@ -2,17 +2,11 @@
 
 namespace Logger
 {
-    class ConsoleLogWriter : BaseLogWriter, ILogger
+    class ConsoleLogWriter : ILogger
     {
-        public ConsoleLogWriter(PathFinder pathFinder)
-        {
-            PathFinder = pathFinder;
-            LogType = LogTypes.Console;
-        }
-
         public void WriteLog(string message)
         {
-            PathFinder.WriteLog(message);
+            Console.WriteLine(message);
         }
     }
 }

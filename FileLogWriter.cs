@@ -1,18 +1,19 @@
-﻿using System;
+﻿using System.IO;
 
 namespace Logger
 {
-    class FileLogWriter : BaseLogWriter, ILogger
+    class FileLogWriter : ILogger
     {
-        public FileLogWriter(PathFinder pathFinder)
+        private string _filePath;
+
+        public FileLogWriter(string filePath)
         {
-            PathFinder = pathFinder;
-            LogType = LogTypes.File;
+            _filePath = filePath;
         }
 
         public void WriteLog(string message)
         {
-            PathFinder.WriteLog(message);
+            File.WriteAllText(_filePath,message);
         }
     }
 }

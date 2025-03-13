@@ -48,12 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseLogWriter.cs" />
     <Compile Include="ComplexLogWriter.cs" />
     <Compile Include="ConsoleLogWriter.cs" />
     <Compile Include="FileLogWriter.cs" />
     <Compile Include="ILogger.cs" />
-    <Compile Include="LogTypes.cs" />
     <Compile Include="PathFinder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
