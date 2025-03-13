@@ -4,19 +4,17 @@ namespace Logger
 {
     class ComplexLogWriter : ILogger
     {
-        private ILogger _consoleLogger;
-        private ILogger _fileLogger;
+        private ILogger[] _loggers;
 
-        public ComplexLogWriter(ILogger consoleLogger, ILogger fileLogger)
+        public ComplexLogWriter(ILogger[] loggers)
         {
-            _consoleLogger = consoleLogger;
-            _fileLogger = fileLogger;
+            _loggers = loggers;
         }
 
         public void WriteLog(string message)
         {
-            _consoleLogger.WriteLog(message);
-            _fileLogger.WriteLog(message);
+            for (int i = 0; i < _loggers.Length; i++)
+                _loggers[i].WriteLog(message);
         }
     }
 }
